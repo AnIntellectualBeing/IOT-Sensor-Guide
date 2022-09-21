@@ -1,0 +1,28 @@
+float temp;
+void setup()
+{
+  Serial.begin(9600);
+  pinMode(6,OUTPUT);
+}
+
+void loop() 
+{
+  temp = analogRead(A0);
+  temp=temp *0.48828125;
+  Serial.print("TEMPERATURE: ");
+  Serial.print(temp);
+  Serial.print("* C ");
+  Serial.println();
+  delay(1000);
+  if(temp>=20)
+  {
+    digitalWrite(6,HIGH);
+    delay(5000);
+  }
+  else
+  {
+    digitalWrite(6,LOW);
+    delay(1000);
+    
+  }
+}
